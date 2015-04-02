@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style/building-blocks/confirm.css">
+  <link rel="stylesheet" href="style/building-blocks/buttons.css">
+  <link rel="stylesheet" href="style/building-blocks/switches.css">
+  <link rel="stylesheet" href="style/building-blocks/util.css">
+  <link rel="stylesheet" href="style/building-blocks/fonts.css">
+  <link rel="stylesheet" href="style/building-blocks/cross_browser.css">
+
+  <link rel="stylesheet" href="style/common.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset="UTF-8">
+
+  <script src="js/common.js"></script>
+
+  <script>
+    var redirectUrl = getQueryString('url');
+    var visited = getCookie(redirectUrl);
+
+    // redirect directly to the app if the user already saw this
+    if (visited) {
+      window.location.href = redirectUrl;
+    }
+  </script>
+  <script src="js/evme.js"></script>
+</head>
+<body>
+  <form role="dialog" data-type="confirm">
+    <section>
+      <h1 data-l10n-id="sorry"></h1>
+      <script>document.write('<p data-l10n-id="no-available-app" data-l10n-args=\'{"name": "'+getQueryString('name')+'"}\'></p>')</script>
+    </section>
+    <menu>
+      <button id="btnConfirm" class="full recommend" data-l10n-id="go-to-website"></button>
+    </menu>
+  </form>
+  <script>
+    App.init();
+  </script>
+</body>
+</html>
