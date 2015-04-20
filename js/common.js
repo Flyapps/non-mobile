@@ -42,7 +42,7 @@ function getQueryString(name) {
   var regex = new RegExp(name+'=([^&]*)')
   var match = window.location.search.match(regex)
   if (match.length > 1) {
-    return match[1];
+    return decodeURIComponent(match[1]);
   }
   return null;
 }
